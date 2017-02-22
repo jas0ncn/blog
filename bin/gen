@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const path = require('path')
+const ora = require('ora')
+const moment = require('moment')
+const config = require('../generate/config')
+
+const keyword = process.argv[2]
+const value = process.argv[3]
+
+// Create a new Markdown
+if (keyword === 'new') {
+  const spinner = ora('Create a new Markdown...')
+  spinner.start()
+
+  const content = `---
+title: ${value}
+date: ${moment().format('YYYY-MM-DD HH:mm:SS')}
+desc: 
+cover: 
+tags: []
+---
+`
+  const filename = path.join(__dirname, `..${config.articleRoot}${value.replace(/\s/g, '-')}.md`)
+
+  // create a markdown
+  fs.writeFileSync(
+    filename,
+    content,
+    {
+      encoding: 'utf-8',
+      flag: 'w'
+    })
+
+  spinner.stop()
+  console.log(`Create file success: ${filename}`)
+} else if (keyword === 'build') {
+  const spinner = ora('Build for production...')
+  spinner.start()
+
+  require('../generate/index')(config.build)
+
+  spinner.stop()
+  console.log('Build success!')
+} else if (keyword === 'dev') {
+  const spinner = ora('Build for development...')
+  spinner.start()
+
+  require('../generate/index')(config.dev)
+
+  spinner.stop()
+  console.log('Build success!')
+}
