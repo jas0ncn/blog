@@ -1,6 +1,7 @@
 const config = require('./config')
 const fs = require('fs')
 const path = require('path')
+const moment = require('moment')
 const fm = require('front-matter')
 
 const articleRoot = path.join(__dirname, '..' + config.articleRoot)
@@ -43,8 +44,9 @@ const frontMatter = s => {
  */
 const genContent = conf => {
   const r = {
-    contents: [],
-    tags: {}
+    contents: {},
+    tags: {},
+    contentsSortedByTime: []
   }
   const fileList = mapDir(articleRoot)
 
@@ -66,14 +68,14 @@ const genContent = conf => {
       url: conf.assetsPublicPath + 'static/articles/' + p.name + '.md'
     }
 
-    r.contents.push(articleMeta)
+    r.contents[p.name] = articleMeta
 
     if (attributes.tags) {
       attributes.tags.forEach(v => {
         if (r.tags[v]) {
-          r.tags[v].push(articleMeta)
+          r.tags[v].push(p.name)
         } else {
-          r.tags[v] = [articleMeta]
+          r.tags[v] = [p.name]
         }
       })
     }
@@ -90,6 +92,17 @@ const genContent = conf => {
         encoding: 'utf-8',
         flag: 'w'
       })
+  })
+
+  r.contentsSortedByTime = Object.keys(r.contents)
+  r.contentsSortedByTime.sort((now, next) => {
+    if (moment(r.contents[now].date).isBefore(r.contents[next].date)) {
+      return 1
+    } else if (moment(r.contents[now].date).isAfter(r.contents[next].date)) {
+      return -1
+    } else {
+      return 0
+    }
   })
 
   // generate contents and output to dist
