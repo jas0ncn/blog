@@ -63,7 +63,8 @@ const genContent = conf => {
       title: attributes.title,
       desc: attributes.desc ? attributes.desc : '',
       cover: attributes.cover ? attributes.cover : '',
-      date: attributes.date,
+      date: moment(attributes.date).utcOffset(0).format('YYYY-MM-DD HH:mm:ss'),
+      tags: attributes.tags,
       name: p.name,
       url: conf.assetsPublicPath + 'static/articles/' + p.name + '.md'
     }
