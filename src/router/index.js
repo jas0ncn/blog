@@ -12,5 +12,9 @@ export default new Router({
     path: '/article/:name',
     name: 'Article',
     component: resolve => require(['../pages/article/index.vue'], resolve)
+  }, {
+    path: '/tags/',
+    name: 'Tags',
+    component: resolve => require(['../pages/tags/index.vue'], resolve)
   }]
 })
