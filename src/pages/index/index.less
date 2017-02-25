@@ -1,0 +1,93 @@
+@import '../../assets/less/_variables.less';
+
+.list {
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 20px 10px;
+
+  .item {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #FFF;
+    border: 1px solid @gray-lighter-color;
+    border-radius: 6px;
+    transition: all 200ms ease;
+    cursor: pointer;
+
+    .article-left-part {
+      .article-title {
+        color: @theme-color;
+        font-size: 24px;
+        line-height: 40px;
+      }
+
+      .article-desc {
+        margin: 10px 0;
+        color: @gray-dark-color;
+        font-size: 16px;
+        line-height: 30px;
+        text-align: justify;
+      }
+
+      .article-release-time {
+        color: @gray-color;
+        font-size: 14px;
+        line-height: 24px;
+
+        .date-icon {
+          width: 14px;
+          margin-right: 5px;
+        }
+
+        .date-string {
+          margin-right: 10px;
+        }
+
+        .tag {
+          margin: 0 5px;
+          padding: 0 5px;
+          color: #FFF;
+          background: @theme-tag-color;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .article-cover {
+      margin-left: 20px;
+
+      .cover-image {
+        width: 200px;
+        height: 150px;
+        border-radius: 6px;
+      }
+    }
+
+    &:hover {
+      border-color: #FFF;
+      box-shadow: 0 0 8px rgba(0,0,0,.2);
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  margin-top: -10px;
+  padding: 20px;
+  border-top: 1px solid @gray-lighter-color;
+  background: @theme-color;
+  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+
+  p, a {
+    color: #FFF;
+    font-size: 13px;
+    line-height: 24px;
+    text-decoration: none;
+  }
+
+  a {
+    font-size: 12px;
+  }
+}
