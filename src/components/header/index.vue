@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="flex row j-center menu">
-      <router-link class="link" :to="{ name: 'Index' }">首页</router-link>
+      <router-link class="link" :to="{ name: 'Index' }" exact>首页</router-link>
       <router-link class="link" :to="'/tags'">标签</router-link>
       <div class="flex row a-center j-center search-container">
         <input class="input" type="text">
