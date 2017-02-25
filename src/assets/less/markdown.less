@@ -124,13 +124,13 @@
 
   // code
   pre {
+    position: relative;
     margin: 10px 0;
     padding: 10px;
-    padding-left: 20px;
+    padding-left: 60px;
     width: 100%;
     background: #222;
     border-radius: 6px;
-    border-left: 40px solid #333;
     overflow: auto;
 
     code {
@@ -158,6 +158,17 @@
         text-align: right;
         display: block;
       }
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      content: '';
+      background: #333;
+      border-radius: 6px 0 0 6px;
     }
   }
 
