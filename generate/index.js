@@ -2,6 +2,7 @@ const config = require('./config')
 const fs = require('fs')
 const path = require('path')
 const moment = require('moment')
+const crypto = require('crypto')
 const fm = require('front-matter')
 
 const articleRoot = path.join(__dirname, '..' + config.articleRoot)
@@ -66,7 +67,8 @@ const genContent = conf => {
       date: moment(attributes.date).utcOffset(0).format('YYYY-MM-DD HH:mm:ss'),
       tags: attributes.tags,
       name: p.name,
-      url: conf.assetsPublicPath + 'static/articles/' + p.name + '.md'
+      url: conf.assetsPublicPath + 'static/articles/' + p.name + '.md',
+      hash: crypto.createHash('sha1').update(body).digest('hex')
     }
 
     r.contents[p.name] = articleMeta
