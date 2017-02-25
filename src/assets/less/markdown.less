@@ -1,0 +1,173 @@
+/*
+ * css for markdown
+ */
+
+ // import code highlight
+ @import './code-highlight.less';
+
+// main
+.main-content {
+
+  // headline
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 10px;
+    color: #274c5e;
+    line-height: 2.6;
+  }
+
+  // links
+  a {
+    color: #77919d;
+    text-decoration: none;
+    transition: all 200ms ease;
+
+    &:hover {
+      color: darken(#77919d, 10%);
+      text-decoration: underline;
+    }
+  }
+
+  // paragraph
+  p {
+    color: #444;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: justify;
+    text-indent: 2em;
+
+    // inline code
+    code {
+      padding: 3px 8px;
+      color: #a71d5d;
+      background: rgba(0,0,0,.05);
+      border-radius: 4px;
+    }
+  }
+
+  // list
+  ul, ol {
+    margin: 10px 0;
+
+    li {
+      position: relative;
+      padding-left: 2em;
+      color: #444;
+      font-size: 16px;
+      line-height: 30px;
+      list-style: none;
+
+      &:before {
+        position: absolute;
+        left: 15px;
+        top: 13px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #444;
+        content: '';
+        display: block;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: counter;
+
+    li {
+      &:before {
+        content: counter(counter) '. ';
+        counter-increment: counter;
+        left: 10px;
+        top: 0;
+        background: none;
+      }
+    }
+  }
+
+ // blockquote
+  blockquote {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: rgba(0,0,0,.05);
+    border-radius: 0 4px 4px 0;
+    border-left: 3px solid #274c5e;
+
+    p {
+      text-indent: 0;
+    }
+  }
+
+  // code
+  pre {
+    margin: 10px 0;
+    padding: 10px;
+    padding-left: 20px;
+    width: 100%;
+    background: #222;
+    border-radius: 6px;
+    border-left: 40px solid #333;
+    overflow: auto;
+
+    code {
+      width: 100%;
+      color: #FFF;
+      counter-reset: linenum;
+
+      .hljs();
+    }
+
+    code > span {
+      line-height: 30px;
+      position: relative;
+      counter-increment: linenum;
+
+      &:before {
+        position: absolute;
+        left: -60px;
+        top: -5px;
+        width: 40px;
+        padding: 0 10px;
+        color: rgba(255,255,255,.4);
+        content: counter(linenum);
+        user-select: none;
+        text-align: right;
+        display: block;
+      }
+    }
+  }
+
+  // line
+  hr {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+    outline: 0;
+    background: #ddd;
+    border: none;
+  }
+}
