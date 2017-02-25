@@ -13,8 +13,13 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "axios": "^0.15.3",
+    "highlight.js": "^9.9.0",
+    "marked": "^0.3.6",
+    "prismjs": "^1.6.0",
     "vue": "^2.1.10",
-    "vue-router": "^2.2.0"
+    "vue-router": "^2.2.0",
+    "vue2-loading-bar": "0.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

@@ -1,11 +1,24 @@
 const config = require('./config')
 const fs = require('fs')
 const path = require('path')
+const marked = require('marked')
 const moment = require('moment')
 const crypto = require('crypto')
 const fm = require('front-matter')
 
 const articleRoot = path.join(__dirname, '..' + config.articleRoot)
+
+// load highlight.js
+marked.setOptions({
+  highlight: function (code, lang) {
+    return require('highlight.js')
+      .highlightAuto(code, [lang])
+      .value
+      .split('\n')
+      .map(v => `<span class="line">${v}</span>`)
+      .join('\n')
+  }
+})
 
 /**
  * map articles folder to array
@@ -64,6 +77,9 @@ const genContent = conf => {
       title: attributes.title,
       desc: attributes.desc ? attributes.desc : '',
       cover: attributes.cover ? attributes.cover : '',
+      author: attributes.author ? attributes.author : 'Jason',
+      cc: attributes.cc ? attributes.cc : '署名-非商业性使用-禁止演绎 3.0 国际',
+      mtime: moment(fs.statSync(p.path).mtime).format('YYYY-MM-DD HH:mm:ss'),
       date: moment(attributes.date).utcOffset(0).format('YYYY-MM-DD HH:mm:ss'),
       tags: attributes.tags,
       name: p.name,
@@ -90,7 +106,7 @@ const genContent = conf => {
 
     fs.writeFileSync(
       conf.assetsRoot + '/articles/' + p.name + '.md',
-      body,
+      marked(body),
       {
         encoding: 'utf-8',
         flag: 'w'
