@@ -1,0 +1,122 @@
+@import '../../assets/less/_variables.less';
+
+.tags {
+  min-height: 100%;
+  padding-bottom: 100px;
+}
+
+.tags-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px 100px;
+  background: #FFF;
+  border: 1px solid @gray-lighter-color;
+  flex-wrap: wrap;
+
+  .tag {
+    padding: 5px 10px;
+    margin: 10px;
+    color: #FFF;
+    background: @theme-light-color;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 200ms ease;
+
+    &:hover {
+      background: darken(@theme-light-color, 20%);
+    }
+  }
+
+  /* tag colors */
+  .ECMAScript6, .JSONP {
+    background: #f6ea8c;
+    &:hover {
+      background: darken(#f6ea8c, 10%);
+    }
+  }
+  .JavaScript, .this {
+    background: #F68657;
+    &:hover {
+      background: darken(#F68657, 10%);
+    }
+  }
+  .npm, .CSST {
+    background: #8FBC94;
+    &:hover {
+      background: darken(#8FBC94, 10%);
+    }
+  }
+  .yarn, .前端工程化 {
+    background: #F16B6F;
+    &:hover {
+      background: darken(#F16B6F, 10%);
+    }
+  }
+  .Vue, .Vue2, .Vue-js, .前端 {
+    background: #42b983;
+    &:hover {
+      background: darken(#42b983, 10%);
+    }
+  }
+  .Tengine, .腾讯云 {
+    background: #AACD6E;
+    &:hover {
+      background: darken(#AACD6E, 10%);
+    }
+  }
+  .Ubuntu, .学习 {
+    background: #C89EC4;
+    &:hover {
+      background: darken(#C89EC4, 10%);
+    }
+  }
+  .全栈, .翻译 {
+    background: #6AAFE6;
+    &:hover {
+      background: darken(#6AAFE6, 10%);
+    }
+  }
+}
+
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: -10px;
+  padding: 20px;
+  border-top: 1px solid @gray-lighter-color;
+  background: @theme-color;
+  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+
+  p, a {
+    color: #FFF;
+    font-size: 13px;
+    line-height: 24px;
+    text-decoration: none;
+  }
+
+  a {
+    font-size: 12px;
+  }
+}
+
+/* adapt mobile browser */
+@media (max-width: 430px) {
+  .tags {
+    min-height: 100%;
+    padding-bottom: 90px;
+  }
+
+  .tags-container {
+    padding: 20px;
+  }
+
+  .footer {
+    a {
+      display: none;
+    }
+  }
+}

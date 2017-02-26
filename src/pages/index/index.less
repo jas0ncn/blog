@@ -1,5 +1,10 @@
 @import '../../assets/less/_variables.less';
 
+.index {
+  min-height: 100%;
+  padding-bottom: 70px;
+}
+
 .list {
   width: 100%;
   max-width: 900px;
@@ -73,6 +78,9 @@
 }
 
 .footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   width: 100%;
   margin-top: -10px;
   padding: 20px;
@@ -89,5 +97,51 @@
 
   a {
     font-size: 12px;
+  }
+}
+
+/* adapt mobile browser */
+@media (max-width: 430px) {
+  .list {
+    margin-top: 0;
+    padding: 20px;
+    padding-bottom: 20px;
+
+    .item {
+      margin-bottom: 10px;
+
+      .article-left-part {
+        .article-title {
+          font-size: 20px;
+          line-height: 30px;
+          text-align: justify;
+        }
+
+        .article-desc {
+          margin-top: 5px;
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        .article-release-time {
+          font-size: 12px;
+          line-height: 16px;
+        }
+
+        .tag {
+          display: none;
+        }
+      }
+
+      .article-cover {
+        display: none;
+      }
+    }
+  }
+
+  .footer {
+    a {
+      display: none;
+    }
   }
 }

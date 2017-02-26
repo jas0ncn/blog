@@ -8,6 +8,7 @@
     background-color: #FFF;
     border-bottom: 1px solid #EEE;
     align-items: flex-end;
+    overflow: hidden;
 
     .mask {
       position: absolute;
@@ -136,6 +137,39 @@
 
     a {
       font-size: 12px;
+    }
+  }
+}
+
+/* adapt mobile browser */
+@media (max-width: 430px) {
+  .article {
+    header {
+      .title {
+        margin-bottom: 20px;
+        padding: 0 20px;
+
+        h1 {
+          margin: 5px 0;
+          font-size: 24px;
+          text-align: justify;
+        }
+
+        p {
+          display: none;
+        }
+      }
+
+      .nav {
+        left: 30px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .footer {
+    a {
+      display: none;
     }
   }
 }
