@@ -4,6 +4,9 @@
   "description": "Jason's Blog powered by Vue.js",
   "author": "Jas0ncn <ceocjy@vip.qq.com>",
   "private": true,
+  "bin": {
+    "jblog": "./bin/gen"
+  },
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js && npm run gen",
