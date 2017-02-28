@@ -20,8 +20,5 @@ export default new Router({
   }, {
     path: '/tags/:name',
     component: resolve => require(['../pages/tags/tag.vue'], resolve)
-  }],
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  }
+  }]
 })

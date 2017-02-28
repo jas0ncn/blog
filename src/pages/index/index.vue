@@ -54,7 +54,8 @@ export default {
     page: 1,
     // inject global contents
     list: [],
-    contents: deepClone(window.__RES__.contents)
+    contents: deepClone(window.__RES__.contents),
+    scrollY: 0
   }),
   components: {
     Vheader
@@ -83,6 +84,16 @@ export default {
 
       this.page++
     }
+  },
+  beforeRouteLeave (to, from, next) {
+    this.scrollY = document.body.scrollTop
+    next()
+  },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      document.body.scrollTop = vm.$data.scrollY
+      vm.$data.scrollY = 0
+    })
   }
 }
 </script>

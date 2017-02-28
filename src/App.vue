@@ -6,7 +6,9 @@
       :progress="progress"
       :error="error"/>
     <transition name="fade">
-      <router-view @finish="loaded"></router-view>
+      <keep-alive>
+        <router-view @finish="loaded"></router-view>
+      </keep-alive>
     </transition>
   </div>
 </template>
