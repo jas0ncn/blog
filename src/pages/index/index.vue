@@ -91,8 +91,11 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     next(vm => {
-      document.body.scrollTop = vm.$data.scrollY
-      vm.$data.scrollY = 0
+      // wait for animation
+      setTimeout(() => {
+        document.body.scrollTop = vm.$data.scrollY
+        vm.$data.scrollY = 0
+      }, 500)
     })
   }
 }

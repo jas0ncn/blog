@@ -64,7 +64,11 @@ export default {
           vm.$emit('finish', 'success')
           vm.$data.html = cache
           vm.$data.article = article
-          document.body.scrollTop = 0
+
+          // wait for animation
+          setTimeout(() => {
+            document.body.scrollTop = 0
+          }, 500)
         })
       }
 
@@ -79,7 +83,11 @@ export default {
         vm.$emit('finish', 'success')
         vm.$data.html = html
         vm.$data.article = article
-        document.body.scrollTop = 0
+
+        // wait for animation
+        setTimeout(() => {
+          document.body.scrollTop = 0
+        }, 500)
       })
     } catch (e) {
       console.error(e)
@@ -87,7 +95,11 @@ export default {
         vm.$emit('finish', 'error')
         vm.$data.html = undefined
         vm.$data.article = undefined
-        document.body.scrollTop = 0
+
+        // wait for animation
+        setTimeout(() => {
+          document.body.scrollTop = 0
+        }, 500)
       })
     }
   },
