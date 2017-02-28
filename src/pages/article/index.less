@@ -147,8 +147,10 @@
 @media (max-width: 430px) {
   .article {
     header {
+      padding: 20px 0;
+      height: auto;
+
       .title {
-        margin-bottom: 20px;
         padding: 0 20px;
 
         h1 {
@@ -163,8 +165,22 @@
       }
 
       .nav {
+        position: fixed;
         left: 30px;
+        bottom: 30px;
+        top: unset;
         margin-left: 0;
+        padding: 10px;
+        background: rgba(255,255,255,.9);
+        border-radius: 50%;
+        box-shadow: 0 3px 10px rgba(0,0,0,.3);
+
+        svg {
+          height: 30px;
+          width: 30px;
+          display: block;
+          opacity: .9;
+        }
       }
     }
   }
