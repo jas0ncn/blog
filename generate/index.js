@@ -126,9 +126,8 @@ const genContent = conf => {
   })
 
   // sort tags
-  const tags = Object.keys(r.tags)
-  tags.forEach(v => {
-    r.tags[v].sort((now, next) => {
+  Object.keys(r.tags).forEach(v => {
+    r.tags[v] = r.tags[v].sort((now, next) => {
       if (moment(r.contents[now].date).isBefore(r.contents[next].date)) {
         return 1
       } else if (moment(r.contents[now].date).isAfter(r.contents[next].date)) {
