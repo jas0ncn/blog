@@ -15,14 +15,17 @@
           <p class="flex row a-center article-release-time">
             <img class="date-icon" src="/static/images/dateicon.svg">
             <span class="date-string">{{ contents[article].date }}</span>
-            <span
+            <router-link
+              tag="span"
               class="tag"
               v-for="(tag, i) in contents[article].tags"
               :key="i"
               v-if="i <= 8"
+              :class="tag.replace('.', '-')"
+              :to="`/tags/${tag}`"
             >
               {{ tag }}
-            </span>
+            </router-link>
           </p>
         </div>
         <div class="article-cover" v-if="contents[article].cover !== ''">
@@ -62,7 +65,7 @@ export default {
   },
   beforeMount () {
     this.loadPage()
-    document.title = `Jason's Blog`
+
     window.onscroll = () => {
       if (document.documentElement.clientHeight + document.body.scrollTop === document.body.scrollHeight) this.loadPage()
     }
@@ -90,6 +93,8 @@ export default {
     next()
   },
   beforeRouteEnter (to, from, next) {
+    document.title = `Jason's Blog`
+
     next(vm => {
       // wait for animation
       setTimeout(() => {
