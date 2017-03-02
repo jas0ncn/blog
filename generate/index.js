@@ -113,6 +113,7 @@ const genContent = conf => {
       })
   })
 
+  // sort contents
   r.contentsSortedByTime = Object.keys(r.contents)
   r.contentsSortedByTime.sort((now, next) => {
     if (moment(r.contents[now].date).isBefore(r.contents[next].date)) {
@@ -122,6 +123,20 @@ const genContent = conf => {
     } else {
       return 0
     }
+  })
+
+  // sort tags
+  const tags = Object.keys(r.tags)
+  tags.forEach(v => {
+    r.tags[v].sort((now, next) => {
+      if (moment(r.contents[now].date).isBefore(r.contents[next].date)) {
+        return 1
+      } else if (moment(r.contents[now].date).isAfter(r.contents[next].date)) {
+        return -1
+      } else {
+        return 0
+      }
+    })
   })
 
   // generate contents and output to dist
