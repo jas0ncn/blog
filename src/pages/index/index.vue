@@ -49,7 +49,7 @@ const deepClone = obj => {
   return JSON.parse(JSON.stringify(obj))
 }
 
-const capacity = 5
+const capacity = 10
 
 export default {
   name: 'index',
