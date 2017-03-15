@@ -21,6 +21,7 @@
     "marked": "^0.3.6",
     "prismjs": "^1.6.0",
     "vue": "^2.1.10",
+    "vue-ga": "^1.0.0",
     "vue-router": "^2.2.0",
     "vue2-loading-bar": "0.0.1"
   },

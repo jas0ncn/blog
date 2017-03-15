@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ga from 'vue-ga'
+
+ga(router, 'UA-85101423-1')
 
 /* eslint-disable no-new */
 new Vue({
