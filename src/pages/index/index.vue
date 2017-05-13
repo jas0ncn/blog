@@ -43,6 +43,7 @@
           :style="{
             background: link.theme
           }"
+          target="blank"
           class="link">
           {{ link.title }}
         </a>
