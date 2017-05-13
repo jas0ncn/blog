@@ -33,6 +33,21 @@
         </div>
       </router-link>
     </div>
+    <div class="flex column j-center friend-link">
+      <h2>友情链接 \ Friend Link</h2>
+      <div class="flex row wrap a-center links">
+        <a
+          v-for="(link, i) in friendlink"
+          :key="i"
+          :href="link.url"
+          :style="{
+            background: link.theme
+          }"
+          class="link">
+          {{ link.title }}
+        </a>
+      </div>
+    </div>
     <div class="flex column a-center j-center footer">
       <a href="https://github.com/jas0ncn/blog" target="_blank">
         <img src="/static/images/github.svg">
@@ -44,6 +59,7 @@
 
 <script>
 import Vheader from '../../components/header'
+import friendlink from '../../friendlink'
 
 const deepClone = obj => {
   return JSON.parse(JSON.stringify(obj))
@@ -58,6 +74,7 @@ export default {
     // inject global contents
     list: [],
     contents: deepClone(window.__RES__.contents),
+    friendlink: deepClone(friendlink),
     scrollY: 0
   }),
   components: {
