@@ -13,7 +13,7 @@
       <div class="flex column j-center desc">
         <p class="bold">自我描述：</p>
         <p>果粉，谷粉。</p>
-        <p>不想当产品经理的程序猿不是好的设计师。</p>
+        <p>不想当产品经理的设计师不是好的程序猿。</p>
       </div>
     </div>
     <div class="flex row j-center menu">
