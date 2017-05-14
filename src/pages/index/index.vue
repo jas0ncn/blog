@@ -85,7 +85,11 @@ export default {
     this.loadPage()
 
     window.onscroll = () => {
-      if (document.documentElement.clientHeight + document.body.scrollTop === document.body.scrollHeight) this.loadPage()
+      /* 神tm会返回小数 */
+      const clientHeight = parseInt(document.documentElement.clientHeight)
+      const scrollTop = parseInt(document.body.scrollTop)
+      const scrollHeight = parseInt(document.body.scrollHeight)
+      if (scrollHeight - clientHeight - scrollTop < 100) this.loadPage()
     }
   },
   mounted () {
