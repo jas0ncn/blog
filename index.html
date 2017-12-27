@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- use webkit engine forcibly -->
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jason's Blog</title>
+    <!-- Preconnect -->
+    <link rel="preconnect" href="//ijason.cc">
+    <link rel="preconnect" href="//cdn.ijason.cc">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="https://cdn.ijason.cc/static/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="./src/styles/index.less">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--[if lte IE 9]>
+      <div class="makebrowsergreatagain">
+        <h1>MAKE BROWSER GREAT AGAIN!</h1>
+        <p>本网站使用了大量的 CSS3 效果</p>
+        <p>为了更好的体验，请使用最新版本的现代浏览器访问本网站!</p>
+      </div>
+      <style type="text/css">
+        .makebrowsergreatagain {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: #F45757;
+          z-index: 50;
+        }
+        h1 {
+          color: #FFF;
+          line-height: 500px;
+          font-size: 60px;
+          font-style: italic;
+          font-family: Verdana, serif;
+          text-align: center;
+        }
+        p {
+          color: #FFF;
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          line-height: 50px;
+        }
+      </style>
+    <!-->
+    <script src="./src/index.tsx"></script>
+    <script src="./src/service-worker/index.ts"></script>
+  </body>
+</html>
